@@ -5,6 +5,9 @@
     width: 100%;
     height: calc(100%);
     margin-top: 122px;
+    @include media($tablet) {
+        margin-top: 54px;
+    }
 }
 .no-video .video-container video,
 .touch .video-container video {
