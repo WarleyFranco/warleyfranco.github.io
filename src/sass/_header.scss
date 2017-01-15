@@ -1,0 +1,160 @@
+header {
+	background-color: white;
+	padding: 50px 20px;
+	padding-top: 40px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+	@include outer-container(100%);
+	@include prefixer(box-shadow, 0px 3px 5px -3px rgba(0,0,0, 0.3), webkit moz spec);
+	&.headroom {
+	    transition: transform .25s ease-in-out;
+	    will-change: transform;
+	}
+
+	&.headroom--pinned {
+	    transform: translateY(0)
+	}
+
+	&.headroom--unpinned {
+	    transform: translateY(-100%)
+	}
+
+	.logo {
+		@include span-columns(3)
+		a {
+			font-weight: 900;
+			color: $blue-dark;
+			font-size: rem(26px);
+			text-transform: uppercase;
+		}
+	}
+
+	nav {
+		@include span-columns(9);
+		.menu {
+			text-align: right;
+			margin-top: 6px;
+		}
+		.menu-item {
+			display: inline-block;
+			padding: 0px 50px;
+		}
+		.menu-link {
+			color: $blue-dark;
+			@include transition(all .4s ease);
+			text-transform: uppercase;
+			font-weight: 400;
+			&:hover {
+			}
+		}
+	}
+	.menu-label {
+		display: none;
+	}
+	#menu-toggle {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	// Responsive
+	@include media($tablet) {
+		padding: 10px 15px;
+		position: fixed;
+		width: 100%;
+		z-index: 1000;
+		top: 0;
+		left: 0;
+		border-bottom: 2px solid $blue-dark;
+		.logo {
+			span {
+				display: none;
+			}
+		}
+		.menu {
+			position: fixed;
+			width: 100%;
+			right: -100%;
+			top: 48px;
+			min-height: calc(100% - 52px);
+			z-index: 1000;
+			background-color: #fff;
+			@include transition(all .4s ease);
+			text-align: center !important; 
+			.menu-item {
+				display: block;
+				width: 100%;
+				padding: 15px 0px;
+				border-bottom: 1px solid $blue-dark;
+			}
+			.menu-link {
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+		}
+		#menu-toggle {
+			&+ .menu-label {
+				display: block;
+				float: right;
+				width: 30px;
+				height: 4px;
+				background-color: $blue-dark;
+				position: relative;
+				margin-top: 13px;
+				opacity: 1;
+				@include transition(all .4s ease);
+				&:before {
+					content: '';
+					width: 30px;
+					height: 4px;
+					background-color: $blue-dark;
+					position: absolute;
+					top: -9px;
+					@include transition(all .4s ease);
+				}
+
+				&:after {
+					content: '';
+					width: 30px;
+					height: 4px;
+					background-color: $blue-dark;
+					position: absolute;
+					bottom: -9px;
+					@include transition(all .4s ease);
+				}
+			}
+			&:checked {
+				& + .menu-label {
+					display: block;
+					float: right;
+					width: 30px;
+					height: 3px;
+					background-color: $blue-dark;
+					position: relative;
+					margin-top: 10px;
+					background-color: #fff;
+					@include transition(all .4s ease);
+					&:before {
+						@include transform(rotate(45deg));
+						top: 0;
+					}
+
+					&:after {
+						@include transform(rotate(-45deg));
+						top: 0;
+					}
+				}
+
+				&~ .menu {
+					right: 0;
+				}
+			}
+		}
+
+		
+	}
+}

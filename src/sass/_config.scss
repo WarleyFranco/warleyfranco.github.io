@@ -1,0 +1,26 @@
+// CONFIG GRID
+
+$visual-grid: true;
+$visual-grid-color: #000 !global;
+$column: 90px !global;
+$gutter: 20px !global;
+$grid-columns: 12 !global;
+$max-width: 1200px !global;
+
+$border-box-sizing: true !global;
+
+// Fonts
+$lato: 'Lato', sans-serif;
+
+// Colors
+$blue-dark: #1d2859;
+$blue: #1f42de;
+$blue-light: #4564ec;
+$grey-dark: #333;
+$grey: tint($grey-dark, 25%);
+$grey-light: tint($grey-dark, 50%);
+
+// Breakpoint
+
+$tablet: new-breakpoint(max-width 768px);
+$mobile: new-breakpoint(max-width 425px);

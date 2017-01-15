@@ -1,0 +1,73 @@
+---
+layout: default
+---
+
+<section class="video-section" id="home">
+    <div class="video-container">
+        <div class="filter">
+        	<div class="video-text">
+                <h2>Warley Franco</h2>
+                <h3>Desenvolvedor Front-End</h3>
+                <h3 class="ityped"></h3>
+            </div>
+        </div>
+        <div class="bgVideo">
+        </div>
+    </div>
+</section>
+
+<section id="projetos">
+    <h2>Projetos</h2>
+    <h3>Alguns projetos que tive o prazer de desenvolver.</h3>
+    <div class="projects">
+    {% for project in site.data.projects %}
+        <div class="project-item">
+            <img src="{{ project.image }}" alt="" class="project-img">
+            <div class="project-info">
+                <h4 class="project-name">{{ project.name }}</h4>
+                <p class="project-desc">{{ project.description }}</p>
+                <a href="{{project.link}}" target="_blank" class="ver-mais">Ver o Projeto</a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</section>
+
+<section id="quem-sou">
+    <h2>Quem sou</h2>
+    <h3>Um pouco sobre mim e minha paixão por códigos.</h3>
+    <div class="quem-sou-txt">
+        <img src="/assets/img/profile-photo.jpg" alt="" class="rounded-img">
+        <p>
+            Meu nome é Warley Franco (é estranho mesmo), carioca, casado, apaixonado por código. Prezo sempre por qualidade, e busco sempre aprender mais sobre novas tecnologias.
+        </p>
+
+        <p>
+            Tive a oportunidade de passar por empresas como: RedZero, Profite, E-Can e outras, por cada local que passei foi um aprendizado que compôs os conhecimentos que possuo atualmente.
+        </p>
+
+        <h5>Como eu trabalho?</h5>
+        <p>
+            Todos meus projetos são feitos usando as melhores ferramentas disponíveis, automação de tarefas (Grunt, Gulp), CSS (Sass, Stylus, Less), Javascript (Jquery ou "puro"), boa semântica para o SEO, e preocupação com uma boa performance, fazendo com que o carregamento seja rápido.
+        </p>
+
+        <h5>Quais serviços ofereço?</h5>
+        <p>
+            Atualmente trabalho com sites institucionais, responsivos (mobile), WordPress, e E-commerce na plataforma Vtex, mas se você precisa de alguma tecnologia específica, seja plataforma ou algum framework específico, entre em contato pra eu entender sua necessidade, provavelmente eu possa te atender.
+        </p>
+    </div>
+</section>
+
+<section id="contato">
+    <div class="ab-center">
+        <h2>Contato</h2>
+        <h3>Tem interesse em realizar algum projeto e tirar as ideias do papel? Fale comigo</h3>
+
+        <ul class="contact-list">
+            <li><a class="contact-link" href="https://br.linkedin.com/in/warleyfranco" target="_blank">Linkedin</a></li>
+            <li><a class="contact-link" href="https://twitter.com/WarleyFranco" target="_blank">Twitter</a></li>
+            <li><a class="contact-link" href="https://github.com/WarleyFranco" target="_blank">Github</a></li>
+            <li>Você também pode enviar um email para <a class="contact-link" href="mailto:contato@warleyfranco.com.br">contato@warleyfranco.com</a></li>
+        </ul>
+    </div>
+</section>

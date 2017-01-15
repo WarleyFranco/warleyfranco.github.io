@@ -1,0 +1,138 @@
+.video-section {
+    border-right: none;
+    border-left: none;
+    position: relative;
+    width: 100%;
+    height: calc(100%);
+    margin-top: 122px;
+}
+.no-video .video-container video,
+.touch .video-container video {
+    display: none;
+}
+.no-video .video-container .poster,
+.touch .video-container .poster {
+    display: block !important;
+}
+.video-container {
+    position: relative;
+    bottom: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+}
+.video-section .bgVideo {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    background-image: url('../img/love-coding.jpg');
+    background-size: cover;
+    
+}
+.video-container .filter {
+    z-index: 100;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+}
+.video-container video {
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+}
+.video-container video.fillWidth {
+    width: 100%;
+}
+
+.filter {
+    .video-text {
+        color: white;
+        font-weight: 900;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 50%;
+        height: 175px;
+        text-align: center;
+        h2 {
+            text-transform: uppercase;
+            font-size: rem(48px);
+        }
+        h3 {
+            font-size: rem(38px);
+            font-weight: 400;
+            letter-spacing: 7px;
+            &.ityped {
+                display: inline-block;
+                font-weight: 300;
+                font-size: rem(30px);
+            }
+        }
+        @include media($tablet) {
+            width: 100%;
+            padding: 0 10px;
+            height: 145px;
+            h2 {
+                font-size: rem(32px);
+            }
+            h3 {
+                font-size: rem(24px);
+                &.ityped {
+                    font-size: rem(18px);
+                }
+            }
+        }
+    }
+}
+
+.ityped-cursor {
+    font-size: rem(30px);
+    opacity: 1;
+    -webkit-animation: blink 0.3s infinite;
+    -moz-animation: blink 0.3s infinite;
+    animation: blink 0.3s infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes blink {
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes blink {
+    100% {
+        opacity: 0;
+    }
+}
+
+.video-section {
+    @include media(768px) {
+        .filter .video-text {
+            width: 100%;
+            padding: 0px 10px;
+            h2 {
+                font-size: rem(38px);
+            }
+            h3 {
+                font-size: rem(32px);
+                &.ityped {
+                    font-size: rem(26px);
+                }
+            }
+        }
+    }
+}
+
