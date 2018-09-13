@@ -7,7 +7,7 @@ layout: default
         <div class="filter">
         	<div class="video-text">
                 <h2>Warley Franco</h2>
-                <h3>Desenvolvedor Front-End</h3>
+                <h3>Front End Developer</h3>
                 <h3 class="ityped"></h3>
             </div>
         </div>
@@ -17,8 +17,8 @@ layout: default
 </section>
 
 <section id="projetos">
-    <h2>Projetos</h2>
-    <h3>Alguns projetos que tive o prazer de desenvolver.</h3>
+    <h2>Projects</h2>
+    <h3>Some projects I've worked.</h3>
     <div class="projects">
     {% for project in site.data.projects %}
         <div class="project-item">
@@ -26,7 +26,7 @@ layout: default
             <div class="project-info">
                 <h4 class="project-name">{{ project.name }}</h4>
                 <p class="project-desc">{{ project.description }}</p>
-                <a href="{{project.link}}" target="_blank" class="ver-mais">Ver o Projeto</a>
+                <a href="{{project.link}}" target="_blank" class="ver-mais">Go to Project</a>
             </div>
         </div>
     {% endfor %}
@@ -34,40 +34,52 @@ layout: default
 </section>
 
 <section id="quem-sou">
-    <h2>Quem sou</h2>
-    <h3>Um pouco sobre mim e minha paixão por códigos.</h3>
+    <h2>About me</h2>
+    <h3>Who is behind de codes</h3>
     <div class="quem-sou-txt">
         <img src="/assets/img/profile-photo.jpg" alt="" class="rounded-img">
         <p>
-            Meu nome é Warley Franco (é estranho mesmo), carioca, casado, apaixonado por código. Prezo sempre por qualidade, e busco sempre aprender mais sobre novas tecnologias.
+            My name is Warley Franco (a little different name), I was born in Rio de Janeiro, raised in a small city called Conceição de Macabu, I fell in love by codes on the first time a saw how they work, and after this I never stopped learn, always thinking about quality and best practices.
         </p>
 
         <p>
-            Tive a oportunidade de passar por empresas como: RedZero, Profite, E-Can e outras, por cada local que passei foi um aprendizado que compôs os conhecimentos que possuo atualmente.
+            I've worked in some really nice Brazilian companies like RedZero, Profite, E-Can, Época Cosméticos (Magazine Luiza Group), Bennu S.A. and others, each place I've worked was a great experience and learning who formed my current knowledge and my eye focused to create awesome solutions for business.
         </p>
 
-        <h5>Como eu trabalho?</h5>
+        <h5>How I work?</h5>
         <p>
-            Todos meus projetos são feitos usando as melhores ferramentas disponíveis, automação de tarefas (Grunt, Gulp), CSS (Sass, Stylus, Less), Javascript (Jquery ou "puro"), boa semântica para o SEO, e preocupação com uma boa performance, fazendo com que o carregamento seja rápido.
+            My development process starts on understanding what kind of challenge we need to dive in.
         </p>
-
-        <h5>Quais serviços ofereço?</h5>
         <p>
-            Atualmente trabalho com sites institucionais, responsivos (mobile), WordPress, e E-commerce na plataforma Vtex, mas se você precisa de alguma tecnologia específica, seja plataforma ou algum framework específico, entre em contato pra eu entender sua necessidade, provavelmente eu possa te atender.
+            After this, we need to design how we want it works.
+        </p>
+        <p>
+            Then we start to create a prototype based on these requirements, just to check if they really solve the challenge
+        </p>    
+
+        <h5>What can I create for you?</h5>
+        <p>
+            Currently I work with static sites, with responsive features, E-commerces (Vtex, Shopify), Hybrid Mobile Apps, and custom systems
+        </p>
+        <p>
+            Technologies: ES6, WebPack, React, React Native, Angular, Ionic, NodeJS.
+        </p>
+        <p>
+
+            If you need some specific knowledge or technology, please get in touch, I will be glad to learn something new to create a greate solution for you.
         </p>
     </div>
 </section>
 
 <section id="contato">
     <div class="ab-center">
-        <h2>Contato</h2>
-        <h3>Tem interesse em realizar algum projeto e tirar as ideias do papel? Fale comigo</h3>
+        <h2>Contact</h2>
+        <h3>Get your ideas off the drawing board and let's create something awesome. Get in touch and ask me how</h3>
 
         <ul class="contact-list">
             <li><a class="contact-link" href="https://br.linkedin.com/in/warleyfranco" target="_blank">Linkedin</a></li>
             <li><a class="contact-link" href="https://twitter.com/WarleyFranco" target="_blank">Twitter</a></li>
             <li><a class="contact-link" href="https://github.com/WarleyFranco" target="_blank">Github</a></li>
-            <li>Você também pode enviar um email para <a class="contact-link" href="mailto:contato@warleyfranco.com.br">contato@warleyfranco.com.br</a></li>
         </ul>
     </div>
 </section>

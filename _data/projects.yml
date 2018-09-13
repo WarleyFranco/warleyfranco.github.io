@@ -1,55 +1,50 @@
-- name: Loja Havaianas
+- name: Havaianas
   image: /assets/img/havaianas.jpg
-  description: Ecommerce na plataforma Vtex para os produtos da marca.
+  description: Ecommerce of most incredible flip flops brand of the world
   link: http://www.loja.havaianas.com.br/
 
 - name: Fit by Sue
   image: /assets/img/fitbysue.jpg
-  description: Projeto internacional (USA) de Ecommerce de roupas fitness.
+  description: International Project for USA - Fitness clothes Ecommerce
   link: http://www.fitbysue.com/
 
 - name: Show Sport
   image: /assets/img/showsport.jpg
-  description: Projeto Ecommerce Internacional (Argentina) de produtos esportivos.
+  description: International Project for Argentina - Sport and related stuff.
   link: http://www.showsport.com.ar/
 
 - name: Trifil
   image: /assets/img/trifil.jpg
-  description: Projeto de Ecommerce de roupas intimas.
+  description: Brazilian popular underwear brand.
   link: http://www.trifil.com.br/
 
 - name: Shop Fácil
   image: /assets/img/shopfacil.jpg
-  description: Ecommerce para o grupo Bradesco.
+  description: Ecommerce of one the greatest banks of Brazil
   link: http://www.shopfacil.com.br/
 
 - name: Pandora
   image: /assets/img/pandora.jpg
-  description: Ecommerce para loja de jóias.
+  description: World famous jewlery brand - Open the Pandora's box
   link: http://www.pandorajoias.com.br/
 
 - name: Levi's
   image: /assets/img/levis.jpg
-  description: Projeto Ecommerce para venda dos jeans da marca.
+  description: E-Commerce for Levi's - Big jeans brand
   link: http://www.levi.com.br/
 
 - name: Officina 7
   image: /assets/img/officina7.jpg
-  description: Loja Virtual na plataforma Vtex de óculos.
+  description: Great glasses brands, together.
   link: http://www.oculosofficina7.com.br/
 
-- name: Loja TomTom
+- name: TomTom
   image: /assets/img/tomtom.jpg
-  description: Ecommerce da Tomtom eletronicos esportivos e gps.
+  description: Global leader in navigation, GPS and Sport Watches.
   link: http://www.lojatomtom.com.br/
 
 - name: Real Spa
   image: /assets/img/realspa.jpg
-  description: Site institucional para cadeia de fraquias.
+  description: Brazilian group of beauty and body care
   link: http://realspa.com.br/
-
-- name: Estudio Quarto Andar
-  image: /assets/img/quartoandar.jpg
-  description: Site institucional para Estúdio de Branding.
-  link: http://www.estudioquartoandar.com.br/
 

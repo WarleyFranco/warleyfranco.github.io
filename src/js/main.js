@@ -23,7 +23,7 @@ ga('send', 'pageview');
 
 	WTK.ityped = function() {
 		ityped.init('.ityped', {
-			strings: ['HTML5', 'CSS3', 'JavaScript', 'Ecommerce Vtex', 'WordPress', 'Apps Híbridos', 'Sistemas', 'Soluções para web'],
+			strings: ['HTML5', 'CSS3', 'JavaScript', 'Ecommerces', 'Hybrid Mobile Apps', 'Custom Systems'],
 			typeSpeed: 150,
 			pause: 1500,
 			backDelay: 1000,

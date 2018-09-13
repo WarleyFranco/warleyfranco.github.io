@@ -47,7 +47,8 @@
     bottom: 0;
 }
 .video-container video.fillWidth {
-    width: 100%;
+    min-width: 100vh;
+    min-height: calc(100vh - 121px);
 }
 
 .filter {
