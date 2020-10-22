@@ -1,0 +1,25 @@
+.header {
+  align-items: center;
+  border-bottom: 5px solid var(--accent);
+  display: flex;
+  height: 100px;
+  justify-content: space-between;
+  padding: 0 var(--spacing-md);
+}
+
+.name {
+  color: var(--primary);
+}
+
+.list {
+  display: flex;
+  list-style-type: none;
+}
+
+.link {
+  color: var(--text);
+  font-size: 1.2rem;
+  font-weight: lighter;
+  margin: 0 var(--spacing-sm);
+  text-decoration: none;
+}
