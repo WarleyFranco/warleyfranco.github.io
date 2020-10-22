@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body, html {
+  width: 100%;
+  background: var(--background);
+}
+
+:root {
+  --background: #fff;
+  --text: #000;
+  --primary: #4C0059;
+  --secondary: #FC8C03;
+  --tertiary: #0D4332;
+  --accent: #FF00E6;
+  --contrast: #3D8378;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+}
+
