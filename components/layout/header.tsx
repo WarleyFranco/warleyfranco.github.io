@@ -22,11 +22,9 @@ const Header = () => {
         <nav>
           <ul className={styles.list}>
             {navItems.map(item => (
-              <>
                 <li key={item.name}>
                   <Link href={item.path}><a className={styles.link}>{item.name}</a></Link>
                 </li>
-              </>
               )
             )}
           </ul>
