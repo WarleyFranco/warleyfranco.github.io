@@ -1,3 +1,4 @@
+import React from 'react'
 import { useRouter } from 'next/router'
 import { getPostBySlug, slugWithoutExtension, getSlugs } from '../../lib/posts-api'
 import { GetStaticPaths, GetStaticProps } from 'next'
