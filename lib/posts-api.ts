@@ -3,12 +3,9 @@ import path from 'path'
 import matter from 'gray-matter'
 import { Post } from '../types/post'
 
-// TODO: Create types for these method returns
-
 const postsDirectory = path.join(process.cwd(), '_posts')
 
-// Fetch all slugs in the target folder
-const getSlugs = () => {
+const getSlugs = (): string[] => {
   return fs.readdirSync(postsDirectory)
 }
 
@@ -21,7 +18,7 @@ const getPostBySlug = (slug, fields = []): Post => {
 
   const item = {}
 
-  fields.map(field => {
+  fields.map((field) => {
     if (field === 'slug') {
       item[field] = slugWithoutExtension(slug)
     }
@@ -47,7 +44,7 @@ const getAllPosts = (): Post[] => {
   const posts = []
   const fields = ['date', 'title', 'categories', 'description']
 
-  allSlugs.map(slug => {
+  allSlugs.map((slug) => {
     const result = getPostBySlug(slug, fields)
     result.date = new Date(result.date).getTime()
     posts.push(result)

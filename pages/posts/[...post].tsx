@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { getPostBySlug, slugWithoutExtension, getSlugs } from '../../lib/posts-api'
-import { GetStaticProps } from 'next'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
 // TODO: Create single default post layout
 
@@ -12,7 +12,7 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const allPaths = getSlugs().map((slug) => {
     return {
       params: { post: [slugWithoutExtension(slug)] },
@@ -25,9 +25,8 @@ export async function getStaticPaths() {
   }
 }
 
-const Post = (props) => {
+const Post = () => {
   const router = useRouter()
-  console.log(props)
   return <h1>Slug: {router.query.post}</h1>
 }
 
