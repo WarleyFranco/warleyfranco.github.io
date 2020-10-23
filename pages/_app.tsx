@@ -1,18 +1,30 @@
-import React from 'react';
-import Head from 'next/head';
-import { Layout } from './../components/layout';
-import './../styles/global.scss';
+import React, { useEffect, useState } from 'react'
+import Head from 'next/head'
+import { Layout } from './../components/layout'
+import LocaleContext from '../locales/locale-context'
+import './../styles/global.scss'
 
 function MyApp({ Component, pageProps }) {
+  const [language, setLanguage] = useState('pt-BR')
+
+  useEffect(() => {
+    setLanguage(window.navigator.language === 'pt-BR' ? 'pt-BR' : 'eng')
+  }, [])
+
   return (
     <>
       <Head>
         <title>Warley Franco</title>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <LocaleContext.Provider value={{ language }}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </LocaleContext.Provider>
     </>
   )
 }
