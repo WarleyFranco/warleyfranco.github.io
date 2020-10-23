@@ -4,8 +4,7 @@ import { GetStaticProps } from 'next'
 
 // TODO: Create single default post layout
 
-export async function getStaticProps({ params }) {
-  const allPaths = getSlugs().map((slug) => slugWithoutExtension(slug))
+export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       singlePost: { ...getPostBySlug('test.md', ['title', 'categories']) },
