@@ -1,26 +1,25 @@
-import { getAllPosts } from '~/lib/posts-api'
-import { useContext } from 'react'
+import React from 'react'
+import {getAllPosts} from '~/lib/posts-api'
+import {useContext} from 'react'
 import LocaleContext from '~/context/locale.context'
-import PostList from '~/components/PostList'
+import PostList from '~/components/post/post-list'
+import CategoryContext from '~/context/category.context';
 
 export async function getStaticProps() {
   return {
-    props: { posts: [...getAllPosts()] },
+    props: {posts: [...getAllPosts()]},
   }
 }
 
-// TODO: Refactor post tiles (don't forget to split categories right @_@)
-
-const AllPosts = ({ posts }) => {
-  console.log(`posts`, posts)
+const AllPosts = ({posts}) => {
   const locale = useContext(LocaleContext)
+  const {category, selectCategory} = useContext(CategoryContext)
 
   return (
     <>
       <h1>Post List</h1>
-      <section>
-        <PostList posts={posts} language={locale.language} />
-      </section>
+      <span>Dev Category: {category}</span>
+      <PostList posts={posts} language={locale.language} category={category} selectCategory={selectCategory}/>
     </>
   )
 }

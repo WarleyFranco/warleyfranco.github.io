@@ -27,13 +27,15 @@ const getPostBySlug = (slug, fields = []): Post => {
       item[field] = content
     }
 
-    if (field === 'categories') {
-      item[field] = data[field].split(',')
-    }
-
     if (data[field]) {
       item[field] = data[field]
     }
+
+    if (field === 'categories') {
+      const categoriesArray = data[field].split(',').map(category => category.trim())
+      item[field] = categoriesArray
+    }
+
   })
 
   return item
