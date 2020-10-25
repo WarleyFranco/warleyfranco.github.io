@@ -7,3 +7,13 @@ language: pt-BR
 ---
 
 
+# Labaxurias
+
+### Teste Markdown
+
+
+```javascript
+const x = { labaxurias }
+```
+
+[Bing](www.bing.com)

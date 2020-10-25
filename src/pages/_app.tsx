@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
-import { Layout } from './../components/layout'
+import { Layout } from '../components/layout'
 import LocaleContext from '../locales/locale-context'
-import './../styles/global.scss'
+import '../styles/global.scss'
 
 function MyApp({ Component, pageProps }) {
   // TODO: Refactor all these contexts to a context folder with a index file
