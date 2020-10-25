@@ -1,32 +1,29 @@
-import { fetchAllPosts } from '../../lib/posts-api';
+import { getAllPosts } from '../../lib/posts-api'
+import Link from 'next/link'
+import { useContext } from 'react'
+import LocaleContext from '../../locales/locale-context'
+import PostList from '../../components/PostList'
 
 export async function getStaticProps() {
-
   return {
-    props: { posts: [ ...fetchAllPosts() ] }
+    props: { posts: [...getAllPosts()] },
   }
 }
 
 // TODO: Refactor post tiles (don't forget to split categories right @_@)
 
-const PostList = ({ posts }) => {
+const AllPosts = ({ posts }) => {
+  console.log(`posts`, posts)
+  const locale = useContext(LocaleContext)
+
   return (
     <>
       <h1>Post List</h1>
       <section>
-        {posts.map(post => (
-          <article key={post.title}>
-            <header>
-              <h2>{post.title}</h2>
-              <span>{post.date}</span>
-            </header>
-            <p>{post.description}</p>
-            <span>{posts.categories}</span>
-          </article>
-        ))}
+        <PostList posts={posts} language={locale.language} />
       </section>
     </>
   )
 }
 
-export default PostList;
+export default AllPosts
