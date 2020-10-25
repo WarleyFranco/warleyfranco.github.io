@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
-import Nav from '../../types/nav'
+import Nav from '~/types/nav'
 import Link from 'next/link'
 import styles from './header.module.scss'
-import LocaleContext from '../../context/locale.context'
-import { locales } from '../../locales/locales'
+import { LocaleContext } from '~/context'
+import { locales } from '~/locales/locales'
 
 const navItems: Nav[] = [
   {

@@ -1,1 +1,3 @@
-export * as LocaleContext from './locale.context'
+import LocaleContext from './locale.context'
+
+export { LocaleContext }

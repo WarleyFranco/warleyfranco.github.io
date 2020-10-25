@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { Post } from '../types/post'
+import { Post } from '~/types/post'
 
 const postsDirectory: string = path.join(process.cwd(), '_posts')
 
@@ -10,11 +10,6 @@ const getSlugs = (): string[] => {
 }
 
 const slugWithoutExtension = (slug): string => slug.replace(/\.md$/g, '')
-
-// TODO: Find a way to render different posts based on the language!
-// Draft: _posts/eng _posts/pt-br
-// Use locale context to check which posts should be loaded
-// Maybe use some front matter properties to filter (Not sure about this approach)
 
 const getPostBySlug = (slug, fields = []): Post => {
   const slugFullPath = path.join(postsDirectory, slug)
