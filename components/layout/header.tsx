@@ -17,7 +17,7 @@ const navItems: Nav[] = [
 ]
 
 const Header = () => {
-  const { language } = useContext(LocaleContext)
+  const { language, toggleLanguage } = useContext(LocaleContext)
   const text = (key) => locales[language][key]
 
   return (
@@ -35,6 +35,8 @@ const Header = () => {
             ))}
           </ul>
         </nav>
+        <span onClick={toggleLanguage}>Toggle</span>
+        <span>Language: {language}</span>
       </header>
     </>
   )

@@ -5,7 +5,9 @@ import LocaleContext from '../locales/locale-context'
 import './../styles/global.scss'
 
 function MyApp({ Component, pageProps }) {
+  // TODO: Refactor all these contexts to a context folder with a index file
   const [language, setLanguage] = useState('pt-BR')
+  const toggleLanguage = () => setLanguage(language === 'pt-BR' ? 'eng' : 'pt-BR')
 
   useEffect(() => {
     setLanguage(window.navigator.language === 'pt-BR' ? 'pt-BR' : 'eng')
@@ -20,7 +22,7 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <LocaleContext.Provider value={{ language }}>
+      <LocaleContext.Provider value={{ language, toggleLanguage }}>
         <Layout>
           <Component {...pageProps} />
         </Layout>
