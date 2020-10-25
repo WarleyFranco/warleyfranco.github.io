@@ -1,0 +1,14 @@
+.titleWrapper {
+  display: flex;
+  font-size: var(--font-size-md);
+}
+
+.title {
+  color: var(--primary-light);
+  padding: .5rem 0;
+  transition: background-size .6s ease-out;
+  background: linear-gradient(var(--accent),var(--accent)) no-repeat left 90%/0 50%;
+  &:hover {
+    background-size: 97% 50%;
+  }
+}

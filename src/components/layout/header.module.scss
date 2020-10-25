@@ -1,14 +1,16 @@
 .header {
   align-items: center;
+  background: var(--white);
   border-bottom: 5px solid var(--accent);
   display: flex;
   height: 100px;
   justify-content: space-between;
   padding: 0 var(--spacing-md);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 .name {
-  color: var(--primary);
+  color: var(--text);
 }
 
 .list {

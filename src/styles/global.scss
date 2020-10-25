@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
+  color: var(--text);
 }
 
 body, html {
@@ -11,14 +12,20 @@ body, html {
 }
 
 :root {
-  --background: #fff;
-  --text: #000;
+  --background: #f8f8f8;
+  --white: #fff;
+  --black: #000;
+  --text: #333;
   --primary: #4C0059;
-  --secondary: #FC8C03;
+  --primary-light: #740488;
+  --secondary: #fed672;
   --tertiary: #0D4332;
-  --accent: #FF00E6;
-  --contrast: #3D8378;
+  --contrast: #ff4a97;
+  --accent: #04febf;
   --spacing-sm: 1rem;
   --spacing-md: 2rem;
+  --font-size-lg: 3rem;
+  --font-size-md: 2rem;
+  --font-size-sm: 1rem;
 }
 
