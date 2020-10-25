@@ -1,7 +1,7 @@
 import { getAllPosts } from '../../lib/posts-api'
 import Link from 'next/link'
 import { useContext } from 'react'
-import LocaleContext from '../../locales/locale-context'
+import LocaleContext from '../../context/locale.context'
 import PostList from '../../components/PostList'
 
 export async function getStaticProps() {
