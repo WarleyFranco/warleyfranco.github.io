@@ -1,18 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Head from 'next/head'
 import { Layout } from '~/components/layout'
-import LocaleContext from '~/context/locale.context'
+import ContextProvider from '~/context/'
 import '~/styles/global.scss'
 
 function MyApp({ Component, pageProps }) {
-  // TODO: Refactor all these contexts to a context folder with a index file
-  const [language, setLanguage] = useState('pt-BR')
-  const toggleLanguage = () => setLanguage(language === 'pt-BR' ? 'eng' : 'pt-BR')
-
-  useEffect(() => {
-    setLanguage(window.navigator.language === 'pt-BR' ? 'pt-BR' : 'eng')
-  }, [])
-
   return (
     <>
       <Head>
@@ -22,11 +14,11 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <LocaleContext.Provider value={{ language, toggleLanguage }}>
+      <ContextProvider>
         <Layout>
           <Component {...pageProps} />
         </Layout>
-      </LocaleContext.Provider>
+      </ContextProvider>
     </>
   )
 }
