@@ -1,14 +1,20 @@
-.titleWrapper {
+.postTitleWrapper {
   display: flex;
   font-size: var(--font-size-md);
 }
 
-.title {
-  color: var(--primary-light);
-  padding: .5rem 0;
+.postTitle {
+  color: var(--text);
+  cursor: pointer;
+  margin-bottom: var(--spacing-sm);
   transition: background-size .6s ease-out;
   background: linear-gradient(var(--accent),var(--accent)) no-repeat left 90%/0 50%;
+  text-decoration: none;
   &:hover {
     background-size: 97% 50%;
   }
+}
+
+.pageTitle {
+  font-size: var(--font-size-md);
 }

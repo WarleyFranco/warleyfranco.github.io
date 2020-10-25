@@ -22,10 +22,16 @@ body, html {
   --tertiary: #0D4332;
   --contrast: #ff4a97;
   --accent: #04febf;
+  --spacing-xs: .5rem;
   --spacing-sm: 1rem;
   --spacing-md: 2rem;
   --font-size-lg: 3rem;
   --font-size-md: 2rem;
   --font-size-sm: 1rem;
+  --font-size-xs: .75rem;
+  --category-dev: var(--secondary);
+  --category-photography: #6cb8ff;
+  --category-music: var(--contrast);
+  --category-reflection: var(--accent);
 }
 
