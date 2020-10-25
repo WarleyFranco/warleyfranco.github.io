@@ -1,22 +1,41 @@
 import React from 'react';
 import Link from 'next/link';
-import { Title } from '~/components/typography'
+import {PostTitle} from '~/components/typography'
 import styles from './post-list.module.scss'
 
-const PostListItem = ({post, selectCategory}) => {
+const CategoryTag = ({categories, selectCategory}) => {
+  return categories.map(category =>
+    <span
+      onClick={() => selectCategory(category)}
+      key={`${category}`}
+      className={`${styles[category]} ${styles.categoryTag}`}
+    >
+      #{category}
+    </span>
+  )
+}
+
+const PostListItem = ({post, selectCategory, language}) => {
+  const normalizedLanguage = language === 'pt-BR' ? language : 'en-US';
+  const date = new Date(post.date).toLocaleDateString(normalizedLanguage, {
+    timeZone: 'UTC', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+  })
+
   return (
     <article className={styles.article}>
-      <Link href={`/posts/${post.slug}`}>
-        <>
-          <header>
-            <Title>{post.title}</Title>
-            <span>{post.date}</span>
-          </header>
-          <p>{post.description}</p>
-        </>
-      </Link>
-      {post.categories.map(category => <p onClick={() => selectCategory(category)}
-                                          key={`${post.title}-${category}`}>{category}</p>)}
+
+      <>
+        <header>
+
+            <PostTitle postLink={`/posts/${post.slug}`}>{post.title}</PostTitle>
+          <p className={styles.date}>{date}</p>
+        </header>
+        <p className={styles.description}>{post.description}</p>
+        <div className={styles.categories}>
+          <CategoryTag categories={post.categories} selectCategory={selectCategory}/>
+        </div>
+      </>
+
 
     </article>
   )

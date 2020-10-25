@@ -12,7 +12,7 @@ const PostList = ({posts, category, language, selectCategory}) => {
           const postCategory = category ? post.categories.includes(category) : true
           return postLanguage && postCategory
         })
-        .map((post) => <PostListItem post={post} key={post.title} selectCategory={selectCategory}/>)
+        .map((post) => <PostListItem post={post} key={post.title} selectCategory={selectCategory} language={language} />)
       }
     </section>
   )

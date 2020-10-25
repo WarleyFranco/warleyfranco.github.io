@@ -4,6 +4,7 @@ import {useContext} from 'react'
 import LocaleContext from '~/context/locale.context'
 import PostList from '~/components/post/post-list'
 import CategoryContext from '~/context/category.context';
+import {PageTitle} from '~/components/typography';
 
 export async function getStaticProps() {
   return {
@@ -17,7 +18,7 @@ const AllPosts = ({posts}) => {
 
   return (
     <>
-      <h1>Post List</h1>
+      <PageTitle>Post List</PageTitle>
       <span>Dev Category: {category}</span>
       <PostList posts={posts} language={locale.language} category={category} selectCategory={selectCategory}/>
     </>
