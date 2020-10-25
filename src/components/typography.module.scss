@@ -4,17 +4,20 @@
 }
 
 .postTitle {
+  background: linear-gradient(var(--accent),var(--accent)) no-repeat left 90%/0 50%;
   color: var(--text);
   cursor: pointer;
   margin-bottom: var(--spacing-sm);
-  transition: background-size .6s ease-out;
-  background: linear-gradient(var(--accent),var(--accent)) no-repeat left 90%/0 50%;
   text-decoration: none;
+  transition: background-size .6s ease-out;
   &:hover {
     background-size: 97% 50%;
   }
 }
 
 .pageTitle {
+  color: var(--text);
   font-size: var(--font-size-md);
+  margin-top: var(--spacing-md);
+  text-align: center;
 }
