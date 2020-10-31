@@ -18,7 +18,7 @@ const getPostBySlug = (slug, fields = []): Post => {
 
   const item = {}
 
-  fields.map((field) => {
+  fields.forEach((field) => {
     if (field === 'slug') {
       item[field] = slugWithoutExtension(slug)
     }
@@ -46,14 +46,13 @@ const getAllPosts = (): Post[] => {
   const posts = []
   const fields = ['date', 'title', 'categories', 'description', 'slug', 'language']
 
-  allSlugs.map((slug) => {
+  allSlugs.forEach((slug) => {
     const result = getPostBySlug(slug, fields)
     result.date = new Date(result.date).getTime()
     posts.push(result)
   })
 
   posts.sort((a, b) => {
-    // Shortcut monstro do Iago!
     return b.date - a.date
   })
 
