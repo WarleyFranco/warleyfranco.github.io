@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import LocaleContext from '~/context/locale.context'
-import CategoryContext from './CategoryContext'
+import LocaleContext from './locale.context'
+import CategoryContext from './category.context'
 
 const ContextProvider = ({ children }) => {
   // TODO add categories context
