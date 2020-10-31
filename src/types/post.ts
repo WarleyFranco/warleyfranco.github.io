@@ -1,8 +1,9 @@
 export interface Post {
   title?: string
-  date?: Date | number
+  date?: number
   categories?: Array<string>
   description?: string
   content?: string
   language?: string
+  slug?: string
 }
