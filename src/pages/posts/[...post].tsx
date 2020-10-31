@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { getPostBySlug, slugWithoutExtension, getSlugs } from '~/lib/posts-api'
 import parseMarkdown from '~/utils/parseMarkdown'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { PostTitle } from '~/components/typography'
 
 // TODO: Create single default post layout
 
@@ -31,8 +32,9 @@ const Post = ({ post }) => {
   const router = useRouter()
   return (
     <>
+
       <h1>Slug: {router.query.post}</h1>
-      <h1>Title: {post.title}</h1>
+      <PostTitle>{post.title}</PostTitle>
       <article>
         <div dangerouslySetInnerHTML={{ __html: parseMarkdown(post.content) }} />
       </article>
