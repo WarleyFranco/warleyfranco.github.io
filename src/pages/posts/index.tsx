@@ -1,26 +1,22 @@
 import React from 'react'
-import {getAllPosts} from '~/lib/posts-api'
-import {useContext} from 'react'
-import LocaleContext from '~/context/locale.context'
+import { getAllPosts } from '~/lib/posts-api'
+import { useContext } from 'react'
 import PostList from '~/components/post/post-list'
-import CategoryContext from '~/context/category.context';
-import {PageTitle} from '~/components/typography';
+import { CategoryContext } from '~/context'
+import { PageTitle } from '~/components/typography'
 
 export async function getStaticProps() {
   return {
-    props: {posts: [...getAllPosts()]},
+    props: { posts: [...getAllPosts()] },
   }
 }
 
-const AllPosts = ({posts}) => {
-  const locale = useContext(LocaleContext)
-  const {category, selectCategory} = useContext(CategoryContext)
-
+const AllPosts = ({ posts }) => {
+  const { category } = useContext(CategoryContext)
   return (
     <>
-      <PageTitle>Post List</PageTitle>
-      <span>Dev Category: {category}</span>
-      <PostList posts={posts} language={locale.language} category={category} selectCategory={selectCategory}/>
+      <PageTitle>Post List: #{category}</PageTitle>
+      <PostList posts={posts} />
     </>
   )
 }
