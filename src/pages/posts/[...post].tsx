@@ -7,20 +7,29 @@ import { PostTitle } from '~/components/typography'
 
 // TODO: Create single default post layout
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params, locales }) => {
   const slug = `${params.post}.md`
   const fields = ['title', 'category', 'content', 'data', 'description', 'language']
   return {
     props: {
       post: { ...getPostBySlug(slug, fields) },
+      locales,
     },
   }
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const allPaths = getSlugs().map((slug) => {
-    return { params: { post: [slugWithoutExtension(slug)] } }
-  })
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
+  const allPaths = getSlugs()
+    .map((slug) => {
+      const paths = []
+      locales.forEach((locale) => {
+        paths.push({ params: { post: [slugWithoutExtension(slug)] }, locale })
+      })
+      return paths
+    })
+    .flat()
+
+  console.log(`allPaths`, allPaths)
 
   return {
     paths: allPaths,
@@ -32,7 +41,6 @@ const Post = ({ post }) => {
   const router = useRouter()
   return (
     <>
-
       <h1>Slug: {router.query.post}</h1>
       <PostTitle>{post.title}</PostTitle>
       <article>

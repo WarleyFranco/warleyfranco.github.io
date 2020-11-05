@@ -3,6 +3,7 @@ import Nav from '~/types/nav'
 import Link from 'next/link'
 import styles from './header.module.scss'
 import { LocaleContext } from '~/context'
+import { useRouter } from 'next/router'
 import { locales } from '~/locales/locales'
 
 const navItems: Nav[] = [
@@ -17,6 +18,7 @@ const navItems: Nav[] = [
 ]
 
 const Header = () => {
+  const { locale } = useRouter()
   const { language, toggleLanguage } = useContext(LocaleContext)
   const text = (key) => locales[language][key]
 
@@ -28,7 +30,7 @@ const Header = () => {
           <ul className={styles.list}>
             {navItems.map((item) => (
               <li key={item.name}>
-                <Link href={item.path}>
+                <Link href={item.path} locale={locale}>
                   <a className={styles.link}>{text(item.name)}</a>
                 </Link>
               </li>
