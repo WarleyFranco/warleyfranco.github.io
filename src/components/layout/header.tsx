@@ -1,8 +1,7 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Nav from '~/types/nav'
 import Link from 'next/link'
 import styles from './header.module.scss'
-import { LocaleContext } from '~/context'
 import { useRouter } from 'next/router'
 import { locales } from '~/locales/locales'
 
@@ -12,15 +11,14 @@ const navItems: Nav[] = [
     path: '/about',
   },
   {
-    name: 'Posts',
+    name: 'posts',
     path: '/posts',
   },
 ]
 
 const Header = () => {
   const { locale } = useRouter()
-  const { language, toggleLanguage } = useContext(LocaleContext)
-  const text = (key) => locales[language][key]
+  const text = (key) => locales[locale][key]
 
   return (
     <>
@@ -35,10 +33,13 @@ const Header = () => {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link href={''} locale={locale === 'en' ? 'pt' : 'en'}>
+                <a className={styles.link}>Toggle Language</a>
+              </Link>
+            </li>
           </ul>
         </nav>
-        <span onClick={toggleLanguage}>Toggle</span>
-        <span>Language: {language}</span>
       </header>
     </>
   )

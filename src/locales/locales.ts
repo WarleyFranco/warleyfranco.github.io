@@ -1,8 +1,10 @@
 export const locales = {
-  'pt-BR': {
+  pt: {
     about: 'Sobre',
+    posts: 'Posts',
   },
-  eng: {
+  en: {
     about: 'About',
+    posts: 'Posts',
   },
 }
