@@ -3,18 +3,25 @@ import path from 'path'
 import matter from 'gray-matter'
 import { Post } from '~/types/post'
 
-const postsDirectory: string = path.join(process.cwd(), '_posts')
+export type PostAPIFields = Array<keyof Post>
 
-const getSlugs = (): string[] => {
-  return fs.readdirSync(postsDirectory)
+const postsDirectory = (locale: string): string => path.join(process.cwd(), '_posts', locale)
+
+const getSlugs = (locale: string): string[] => {
+  return fs.readdirSync(postsDirectory(locale))
 }
 
-const slugWithoutExtension = (slug): string => slug.replace(/\.md$/g, '')
+const slugWithoutExtension = (slug: string): string => slug.replace(/\.md$/g, '')
 
-const getPostBySlug = (slug, fields = []): Post => {
-  const slugFullPath = path.join(postsDirectory, slug)
+const getPostBySlug = (slug: string, locale: string, fields?: PostAPIFields): Post => {
+  const slugFullPath = path.join(postsDirectory(locale), slug)
   const slugContent = fs.readFileSync(slugFullPath)
   const { content, data } = matter(slugContent)
+
+  if (!fields) {
+    data.date = JSON.stringify(data.date)
+    return { ...data, content }
+  }
 
   const item = {}
 
@@ -32,31 +39,31 @@ const getPostBySlug = (slug, fields = []): Post => {
     }
 
     if (field === 'categories') {
-      const categoriesArray = data[field].split(',').map(category => category.trim())
-      item[field] = categoriesArray
+      item[field] = data[field].split(',').map((category) => category.trim())
     }
-
   })
 
   return item
 }
 
-const getAllPosts = (): Post[] => {
-  const allSlugs = getSlugs()
+const getAllPostsByLocale = (locale: string): Post[] => {
+  const allSlugs = getSlugs(locale)
   const posts = []
-  const fields = ['date', 'title', 'categories', 'description', 'slug', 'language']
+  const fields: PostAPIFields = ['date', 'title', 'categories', 'description', 'slug']
 
   allSlugs.forEach((slug) => {
-    const result = getPostBySlug(slug, fields)
-    result.date = new Date(result.date).getTime()
+    const result = getPostBySlug(slug, locale, fields)
+    result.date = JSON.stringify(result.date)
     posts.push(result)
   })
 
   posts.sort((a, b) => {
-    return b.date - a.date
+    const aDate = new Date(a).getTime()
+    const bDate = new Date(b).getTime()
+    return bDate - aDate
   })
 
   return posts
 }
 
-export { getSlugs, getAllPosts, getPostBySlug, slugWithoutExtension }
+export { getSlugs, getAllPostsByLocale, getPostBySlug, slugWithoutExtension }

@@ -7,29 +7,25 @@ import { PostTitle } from '~/components/typography'
 
 // TODO: Create single default post layout
 
-export const getStaticProps: GetStaticProps = async ({ params, locales }) => {
+export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   const slug = `${params.post}.md`
-  const fields = ['title', 'category', 'content', 'data', 'description', 'language']
   return {
     props: {
-      post: { ...getPostBySlug(slug, fields) },
-      locales,
+      post: { ...getPostBySlug(slug, locale) },
     },
   }
 }
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
-  const allPaths = getSlugs()
-    .map((slug) => {
+  const allPaths = locales
+    .map((locale) => {
       const paths = []
-      locales.forEach((locale) => {
+      getSlugs(locale).forEach((slug) => {
         paths.push({ params: { post: [slugWithoutExtension(slug)] }, locale })
       })
       return paths
     })
     .flat()
-
-  console.log(`allPaths`, allPaths)
 
   return {
     paths: allPaths,

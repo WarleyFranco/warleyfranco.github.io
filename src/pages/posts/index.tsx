@@ -1,13 +1,13 @@
 import React from 'react'
-import { getAllPosts } from '~/lib/posts-api'
+import { getAllPostsByLocale } from '~/lib/posts-api'
 import { useContext } from 'react'
 import PostList from '~/components/post/post-list'
 import { CategoryContext } from '~/context'
 import { PageTitle } from '~/components/typography'
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }) {
   return {
-    props: { posts: [...getAllPosts()] },
+    props: { posts: [...getAllPostsByLocale(locale)], locale },
   }
 }
 

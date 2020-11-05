@@ -1,6 +1,6 @@
 export interface Post {
   title?: string
-  date?: number
+  date?: string
   categories?: Array<string>
   description?: string
   content?: string
