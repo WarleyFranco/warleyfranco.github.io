@@ -3,7 +3,7 @@
   "endOfLine": "crlf",
   "parser": "typescript",
   "printWidth": 100,
-  "semi": false,
+  "semi": true,
   "singleQuote": true,
   "tabWidth": 2,
   "trailingComma": "es5"
