@@ -1,13 +1,17 @@
-import React, { useContext } from 'react'
-import { PostTitle } from '~/components/typography'
-import styles from './post-list.module.scss'
-import formatDate from '~/utils/formatDate'
-import { Post } from '~/types/post'
-import { useRouter } from 'next/router'
-import { LocaleContext, CategoryContext } from '~/context'
+import React, { useContext } from 'react';
+import { PostTitle } from '~/components/layout/typography';
+import styles from './post-list.module.scss';
+import formatDate from '~/utils/formatDate';
+import { Post } from '~/types/post';
+import { useRouter } from 'next/router';
+import { LocaleContext, CategoryContext } from '~/context';
+
+type CategoryTagProps = {
+  categories: string[];
+};
 
 const CategoryTags = ({ categories }: CategoryTagProps) => {
-  const { selectCategory } = useContext(CategoryContext)
+  const { selectCategory } = useContext(CategoryContext);
   return (
     <>
       {categories.map((category) => (
@@ -20,14 +24,18 @@ const CategoryTags = ({ categories }: CategoryTagProps) => {
         </span>
       ))}
     </>
-  )
-}
+  );
+};
+
+type PostListItemProps = {
+  post: Post;
+};
 
 const PostListItem = ({ post }: PostListItemProps) => {
-  const { language } = useContext(LocaleContext)
-  const normalizedLanguage = language === 'pt-BR' ? language : 'en-US'
-  const date = formatDate(post.date, normalizedLanguage)
-  const router = useRouter()
+  const { language } = useContext(LocaleContext);
+  const normalizedLanguage = language === 'pt-BR' ? language : 'en-US';
+  const date = formatDate(post.date, normalizedLanguage);
+  const router = useRouter();
 
   return (
     <article className={styles.article}>
@@ -44,15 +52,7 @@ const PostListItem = ({ post }: PostListItemProps) => {
         </div>
       </>
     </article>
-  )
-}
+  );
+};
 
-type CategoryTagProps = {
-  categories: string[]
-}
-
-type PostListItemProps = {
-  post: Post
-}
-
-export default PostListItem
+export default PostListItem;
