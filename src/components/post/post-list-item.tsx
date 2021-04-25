@@ -34,7 +34,7 @@ type PostListItemProps = {
 const PostListItem = ({ post }: PostListItemProps) => {
   const { language } = useContext(LocaleContext);
   const normalizedLanguage = language === 'pt-BR' ? language : 'en-US';
-  const date = formatDate(post.date, normalizedLanguage);
+  const created = formatDate(post.created, normalizedLanguage);
   const router = useRouter();
 
   return (
@@ -44,7 +44,7 @@ const PostListItem = ({ post }: PostListItemProps) => {
           <PostTitle postLink={`/posts/${post.slug}`} locale={router.locale}>
             {post.title}
           </PostTitle>
-          <p className={styles.date}>{date}</p>
+          <p className={styles.date}>{created}</p>
         </header>
         <p className={styles.description}>{post.description}</p>
         <div className={styles.categories}>
