@@ -3,7 +3,7 @@ import { getAllPostsByLocale } from '~/lib/posts-api'
 import { useContext } from 'react'
 import PostList from '~/components/post/post-list'
 import { CategoryContext } from '~/context'
-import { PageTitle } from '~/components/typography'
+import { PageTitle } from '~/components/layout/typography'
 
 export async function getStaticProps({ locale }) {
   return {
