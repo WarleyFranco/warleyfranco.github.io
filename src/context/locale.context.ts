@@ -1,8 +1,16 @@
-import React from 'react'
+import React from 'react';
+import { Locales } from '~/locales';
 
-const LocaleContext = React.createContext({
-  language: 'pt-BR',
-  toggleLanguage: () => {},
-})
+interface ILocaleContext {
+  readonly locale: string
+  readonly defaultLocale?: string,
+  toggleLocale?: () => void,
+}
 
-export default LocaleContext
+const LocaleContext = React.createContext<ILocaleContext>({
+  locale: Locales.English,
+  defaultLocale: Locales.English,
+  toggleLocale(): void {},
+});
+
+export default LocaleContext;

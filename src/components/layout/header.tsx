@@ -2,8 +2,8 @@ import React from 'react'
 import Nav from '~/types/nav'
 import Link from 'next/link'
 import styles from './header.module.scss'
-import { useRouter } from 'next/router'
-import { locales } from '~/locales/locales'
+import { useTranslation } from '~/hooks';
+import { Locales } from '~/locales';
 
 const navItems: Nav[] = [
   {
@@ -17,9 +17,7 @@ const navItems: Nav[] = [
 ]
 
 const Header = () => {
-  const { locale } = useRouter()
-  const text = (key) => locales[locale][key]
-
+  const { t, locale } = useTranslation();
   return (
     <>
       <header className={styles.header}>
@@ -29,18 +27,28 @@ const Header = () => {
             {navItems.map((item) => (
               <li key={item.name}>
                 <Link href={item.path} locale={locale}>
-                  <a className={styles.link}>{text(item.name)}</a>
+                  <a className={styles.link}>{t(item.name)}</a>
                 </Link>
               </li>
             ))}
-            <li>
-              <Link href={''} locale={locale === 'en' ? 'pt' : 'en'}>
-                <a className={styles.link}>Toggle Language</a>
-              </Link>
-            </li>
+            <LocaleLinks />
           </ul>
         </nav>
       </header>
+    </>
+  )
+}
+
+const LocaleLinks = () => {
+  return (
+    <>
+      {Object.keys(Locales).map((locale) => (
+        <li>
+          <Link href={''} locale={Locales[locale]}>
+            <a className={styles.link}>{Locales[locale]}</a>
+          </Link>
+        </li>
+      ))}
     </>
   )
 }

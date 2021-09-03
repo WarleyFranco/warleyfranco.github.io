@@ -1,28 +1,32 @@
-import React, { useEffect, useState } from 'react'
-import LocaleContext from './locale.context'
-import CategoryContext from './category.context'
+import React, { useEffect, useState } from 'react';
+import { Locales } from '~/locales';
+import LocaleContext from './locale.context';
+import CategoryContext from './category.context';
 
 const ContextProvider = ({ children }) => {
   // TODO add categories context
-  const [language, setLanguage] = useState('pt-BR')
-  const [category, setCategory] = useState('')
-  const toggleLanguage = () => setLanguage(language === 'pt-BR' ? 'eng' : 'pt-BR')
+  const [locale, setLocale] = useState(Locales.Portuguese);
+  const [category, setCategory] = useState('');
+
+  const toggleLocale = () =>
+    setLocale(locale === Locales.Portuguese ? Locales.English : Locales.Portuguese);
+
   const selectCategory = (categoryArray) => {
-    setCategory(categoryArray)
-  }
+    setCategory(categoryArray);
+  };
 
   useEffect(() => {
-    setLanguage(window.navigator.language === 'pt-BR' ? 'pt-BR' : 'eng')
-  }, [])
+    toggleLocale();
+  }, []);
 
   return (
-    <LocaleContext.Provider value={{ language, toggleLanguage }}>
+    <LocaleContext.Provider value={{ locale, toggleLocale }}>
       <CategoryContext.Provider value={{ category, selectCategory }}>
         {children}
       </CategoryContext.Provider>
     </LocaleContext.Provider>
-  )
-}
+  );
+};
 
-export { LocaleContext, CategoryContext }
-export default ContextProvider
+export { LocaleContext, CategoryContext };
+export default ContextProvider;

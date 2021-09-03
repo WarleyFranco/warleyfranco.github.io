@@ -1,10 +1,6 @@
-export const locales = {
-  pt: {
-    about: 'Sobre',
-    posts: 'Posts',
-  },
-  en: {
-    about: 'About',
-    posts: 'Posts',
-  },
+enum Locales {
+  Portuguese = 'pt-BR',
+  English = 'en-CA',
 }
+
+export default Locales;
