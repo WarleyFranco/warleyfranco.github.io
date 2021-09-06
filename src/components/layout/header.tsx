@@ -4,6 +4,7 @@ import Link from 'next/link'
 import styles from './header.module.scss'
 import { useTranslation } from '~/hooks';
 import { Locales } from '~/locales';
+import { useRouter } from 'next/router';
 
 const navItems: Nav[] = [
   {
@@ -40,17 +41,18 @@ const Header = () => {
 }
 
 const LocaleLinks = () => {
+  const { pathname, query } = useRouter();
   return (
     <>
       {Object.keys(Locales).map((locale) => (
         <li key={locale}>
-          <Link href={''} locale={Locales[locale]}>
+          <Link href={{ pathname, query }} locale={Locales[locale]}>
             <a className={styles.link}>{Locales[locale]}</a>
           </Link>
         </li>
       ))}
     </>
-  )
+  );
 }
 
 export default Header
