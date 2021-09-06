@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import LocaleContext from '../context/locale.context';
+import { LocaleContext } from '~/context';
 import { Translations } from '~/locales';
 
 export default function useTranslation() {

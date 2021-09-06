@@ -43,7 +43,7 @@ const LocaleLinks = () => {
   return (
     <>
       {Object.keys(Locales).map((locale) => (
-        <li>
+        <li key={locale}>
           <Link href={''} locale={Locales[locale]}>
             <a className={styles.link}>{Locales[locale]}</a>
           </Link>
