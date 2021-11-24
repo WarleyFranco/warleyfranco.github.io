@@ -3,4 +3,5 @@ module.exports = {
     locales: ['en-CA', 'pt-BR'],
     defaultLocale: 'en-CA',
   },
+  swcMinify: true,
 };
