@@ -15,7 +15,7 @@ const getSlugs = (locale: string): string[] => {
 const slugWithoutExtension = (slug: string): string => slug.replace(/\.md$/g, '');
 
 const getPostBySlug = (slug: string, locale: string, fields?: PostAPIFields[]): Partial<Post> => {
-  const slugFullPath = path.join(postsDirectory(locale), slug);
+  const slugFullPath = path.join(postsDirectory(locale), `${slug}.md`);
   const slugContent = fs.readFileSync(slugFullPath);
   const { content, data } = matter(slugContent, {
     engines: {
