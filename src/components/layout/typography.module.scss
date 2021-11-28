@@ -1,0 +1,12 @@
+.anchor {
+  @apply font-sans text-xl mx-5 text-gray-900 cursor-pointer;
+  &:active {
+    @apply text-pink-800;
+  }
+  &:hover {
+    @apply text-pink-600;
+  }
+  &.current {
+    @apply text-pink-600;
+  }
+}

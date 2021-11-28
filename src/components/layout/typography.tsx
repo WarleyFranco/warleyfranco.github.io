@@ -1,21 +1,25 @@
 import Link from 'next/link';
 import { FunctionComponent } from 'react';
+import styles from './typography.module.scss';
 
-type PostTitleProps = {
+const Anchor: FunctionComponent = ({ children, ...props }): JSX.Element => {
+  console.log('Anchor props', props);
+  return (
+    <a {...props} className={styles.anchor}>
+      {children}
+    </a>
+  );
+};
+
+const PostTitle: FunctionComponent<{
   children: string;
   postLink?: string;
   locale?: string;
-};
-
-const PostTitle: FunctionComponent<PostTitleProps> = ({
-  children,
-  postLink = '',
-  locale = '',
-}): JSX.Element => (
-  <h2 className="text-primary-500 font-semibold text-3xl">
+}> = ({ children, postLink = '', locale = '' }): JSX.Element => (
+  <h2 className={`text-gray-700 font-semibold text-3xl`}>
     {postLink && locale ? (
       <Link href={postLink} locale={locale}>
-        <a className="">{children}</a>
+        <a>{children}</a>
       </Link>
     ) : (
       <span>{children}</span>
@@ -24,9 +28,11 @@ const PostTitle: FunctionComponent<PostTitleProps> = ({
 );
 
 const PageTitle: FunctionComponent = ({ children }): JSX.Element => (
-  <h1 className="text-primary text-gray-700 text-5xl font-sans font-bold text-center py-4 tracking-wider">
+  <h1
+    className={`text-gray-700 text-6xl font-sans font-bold text-center py-4 tracking-wider my-10`}
+  >
     {children}
   </h1>
 );
 
-export { PageTitle, PostTitle };
+export { Anchor, PageTitle, PostTitle };
