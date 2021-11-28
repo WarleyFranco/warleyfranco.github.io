@@ -1,9 +1,7 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import { getPostBySlug, slugWithoutExtension, getSlugs } from '~/lib/posts-api';
-import parseMarkdown from '~/utils/parseMarkdown';
+import markdownToHtml from '~/utils/markdownToHtml';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { PageTitle } from '~/components/layout/typography';
 
 // TODO: Create single default post layout
 type PostPageStaticProps = {
@@ -26,6 +24,8 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const allPaths = locales
     .map((locale) => {
       const paths = [];
+
+      // Create URL paths based on the locale and post translation;
       getSlugs(locale).forEach((slug) => {
         paths.push({ params: { post: [slugWithoutExtension(slug)] }, locale });
       });
@@ -39,16 +39,19 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   };
 };
 
-const Post = ({ post }) => {
-  const router = useRouter();
+const Post = ({ post }): JSX.Element => {
   return (
-    <>
-      <h1>Slug: {router.query.post}</h1>
-      <PageTitle>{post.title}</PageTitle>
-      <article>
-        <div dangerouslySetInnerHTML={{ __html: parseMarkdown(post.content) }} />
+    <div className="flex justify-center">
+      <article className="flex flex-col justify-self-center max-w-4xl prose prose-2xl prose-pink dark:prose-invert">
+        <header>
+          <h1 className="text-gray-700">{post.title}</h1>
+        </header>
+        <div
+          className="max-w-full"
+          dangerouslySetInnerHTML={{ __html: markdownToHtml(post.content) }}
+        />
       </article>
-    </>
+    </div>
   );
 };
 
