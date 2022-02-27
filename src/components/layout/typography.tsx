@@ -3,7 +3,6 @@ import { FunctionComponent } from 'react';
 import styles from './typography.module.scss';
 
 const Anchor: FunctionComponent = ({ children, ...props }): JSX.Element => {
-  console.log('Anchor props', props);
   return (
     <a {...props} className={styles.anchor}>
       {children}

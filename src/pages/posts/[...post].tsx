@@ -12,7 +12,6 @@ type PostPageStaticProps = {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params, locale }: PostPageStaticProps) => {
-  console.log('params', params);
   return {
     props: {
       post: { ...getPostBySlug(params.post[0], locale) },
