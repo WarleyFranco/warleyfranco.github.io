@@ -23,7 +23,11 @@ function Header() {
   return (
     <>
       <header className={styles.header}>
-        <h1 className="font-sans text-4xl font-bold text-gray-700">Warley Franco<span className="text-pink-600">;</span></h1>
+        <Link href="/">
+          <Anchor>
+            <h1 className="font-sans text-4xl font-bold text-gray-700">Warley Franco<span className="text-pink-600 text-4xl">;</span></h1>
+          </Anchor>
+        </Link>
         <nav>
           <ul className={styles.list}>
             {navItems.map((item) => (
