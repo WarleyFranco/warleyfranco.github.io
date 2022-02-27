@@ -13,17 +13,12 @@ export async function getStaticProps({ locale }) {
 }
 
 const AllPosts = ({ posts, categories }): JSX.Element => {
-  let currentCategory = '#all';
   const { category } = useContext(CategoryContext);
-
-  if (category) {
-    currentCategory = `#${category}`;
-  }
 
   return (
     <>
       <PageTitle>
-        <span className="text-pink-600">{currentCategory}</span> posts
+        <span className="text-pink-600">#{category}</span> posts
       </PageTitle>
       <CategoryTagList categories={categories} />
       <PostList posts={posts} />

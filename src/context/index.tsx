@@ -4,7 +4,7 @@ import CategoryContext from './category.context';
 
 const ContextProvider = ({ children }) => {
   // TODO add categories context
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('all');
 
   const selectCategory = (categoryArray) => {
     setCategory(categoryArray);
