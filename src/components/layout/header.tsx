@@ -1,10 +1,11 @@
-import React from 'react'
-import Nav from '~/types/nav'
-import Link from 'next/link'
-import styles from './header.module.scss'
+import React from 'react';
+import Nav from '~/types/nav';
+import Link from 'next/link';
+import styles from './header.module.scss';
 import { useTranslation } from '~/hooks';
 import { Locales } from '~/locales';
 import { useRouter } from 'next/router';
+import { Anchor } from '~/components/layout/typography';
 
 const navItems: Nav[] = [
   {
@@ -15,20 +16,20 @@ const navItems: Nav[] = [
     name: 'posts',
     path: '/posts',
   },
-]
+];
 
-const Header = () => {
+function Header() {
   const { t, locale } = useTranslation();
   return (
     <>
       <header className={styles.header}>
-        <h1 className={styles.name}>Warley Franco</h1>
+        <h1 className="font-sans text-4xl font-bold text-gray-700">Warley Franco<span className="text-pink-600">;</span></h1>
         <nav>
           <ul className={styles.list}>
             {navItems.map((item) => (
               <li key={item.name}>
                 <Link href={item.path} locale={locale}>
-                  <a className={styles.link}>{t(item.name)}</a>
+                  <Anchor>{t(item.name)}</Anchor>
                 </Link>
               </li>
             ))}
@@ -37,7 +38,7 @@ const Header = () => {
         </nav>
       </header>
     </>
-  )
+  );
 }
 
 const LocaleLinks = () => {
@@ -47,12 +48,12 @@ const LocaleLinks = () => {
       {Object.keys(Locales).map((locale) => (
         <li key={locale}>
           <Link href={{ pathname, query }} locale={Locales[locale]}>
-            <a className={styles.link}>{Locales[locale]}</a>
+            <Anchor>{Locales[locale]}</Anchor>
           </Link>
         </li>
       ))}
     </>
   );
-}
+};
 
-export default Header
+export default Header;
