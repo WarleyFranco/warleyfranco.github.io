@@ -14,7 +14,7 @@ const getSlugs = (): string[] => {
 
 const slugWithoutExtension = (slug: string): string => slug.replace(/\.md$/g, '');
 
-const getPostBySlug = (slug: string, locale: string, fields?: PostAPIFields[]): Partial<Post> => {
+const getPostBySlug = (slug: string, locale?: string, fields?: PostAPIFields[]): Partial<Post> => {
   const fileName = locale?.toLowerCase() === 'pt-br' ? `index.${locale.toLowerCase()}.md` : 'index.md';
   const postFilePath = path.join(postsDirectory, slug, fileName);
 
@@ -92,6 +92,7 @@ const getAllPostsByLocale = (locale: string): Partial<Post>[] => {
     }
   });
 
+  // TODO: Double check this sort;
   posts.sort((a, b) => {
     const aDate = new Date(a).getTime();
     const bDate = new Date(b).getTime();
@@ -101,4 +102,25 @@ const getAllPostsByLocale = (locale: string): Partial<Post>[] => {
   return posts;
 };
 
-export { getSlugs, getAllPostsByLocale, getPostBySlug, slugWithoutExtension };
+const getAllCategories = (): Set<string> => {
+  const categories = new Set<string>();
+  categories.add('all');
+
+  const fields: PostAPIFields[] = ['categories'];
+
+  const allSlugs = getSlugs();
+  allSlugs.forEach((slug) => {
+    const result = getPostBySlug(slug, null, fields);
+
+    if (result) {
+      result.categories.forEach(category => {
+        categories.add(category)
+      });
+
+    }
+  });
+
+  return categories;
+}
+
+export { getSlugs, getAllPostsByLocale, getPostBySlug, slugWithoutExtension, getAllCategories };

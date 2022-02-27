@@ -5,7 +5,7 @@ import { CategoryContext } from '~/context'
 
 const PostList = ({ posts }) => {
   const { category } = useContext(CategoryContext)
-  const filterPostsByCategory = (post) => (category ? post.categories.includes(category) : true)
+  const filterPostsByCategory = (post) => (category !== 'all' ? post.categories.includes(category) : true)
 
   return (
     <section className={styles.postList}>
