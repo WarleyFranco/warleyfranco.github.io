@@ -6,23 +6,42 @@ import yaml from 'js-yaml';
 
 export type PostAPIFields = keyof Post;
 
-const postsDirectory = (locale: string): string => path.join(process.cwd(), '_posts', locale);
+const postsDirectory = path.join(process.cwd(), '_posts');
 
-const getSlugs = (locale: string): string[] => {
-  return fs.readdirSync(postsDirectory(locale));
+const getSlugs = (): string[] => {
+  return fs.readdirSync(postsDirectory);
 };
 
 const slugWithoutExtension = (slug: string): string => slug.replace(/\.md$/g, '');
 
 const getPostBySlug = (slug: string, locale: string, fields?: PostAPIFields[]): Partial<Post> => {
-  const slugFullPath = path.join(postsDirectory(locale), slug);
-  const slugContent = fs.readFileSync(slugFullPath);
-  const { content, data } = matter(slugContent, {
+  const fileName = locale?.toLowerCase() === 'pt-br' ? `index.${locale.toLowerCase()}.md` : 'index.md';
+  const postFilePath = path.join(postsDirectory, slug, fileName);
+
+  try {
+    if(!fs.existsSync(postFilePath)) {
+      return;
+    }
+  } catch (err) {
+    console.error(err);
+  }
+
+  if (!postFilePath) {
+    return;
+  }
+
+  const postFilePathContent = fs.readFileSync(postFilePath)
+
+  if (!postFilePathContent) {
+    return;
+  }
+
+  const { content, data } = matter(postFilePathContent, {
     engines: {
       yaml: {
         parse: (str): Record<string, unknown> =>
           yaml.load(str, {
-            filename: slugFullPath,
+            filename: postFilePath,
             onWarning: (yamlException: yaml.YAMLException): void => {
               console.warn('matter yaml engine exception:', yamlException);
             },
@@ -61,13 +80,16 @@ const getPostBySlug = (slug: string, locale: string, fields?: PostAPIFields[]): 
 };
 
 const getAllPostsByLocale = (locale: string): Partial<Post>[] => {
-  const allSlugs = getSlugs(locale);
+  const allSlugs = getSlugs();
   const posts = [];
   const fields: PostAPIFields[] = ['created', 'title', 'categories', 'description', 'slug'];
 
   allSlugs.forEach((slug) => {
     const result = getPostBySlug(slug, locale, fields);
-    posts.push(result);
+
+    if (result) {
+      posts.push(result);
+    }
   });
 
   posts.sort((a, b) => {

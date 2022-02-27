@@ -26,7 +26,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
       const paths = [];
 
       // Create URL paths based on the locale and post translation;
-      getSlugs(locale).forEach((slug) => {
+      getSlugs().forEach((slug) => {
         paths.push({ params: { post: [slugWithoutExtension(slug)] }, locale });
       });
       return paths;
