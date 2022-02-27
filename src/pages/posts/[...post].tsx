@@ -12,10 +12,10 @@ type PostPageStaticProps = {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params, locale }: PostPageStaticProps) => {
-  const slug = `${params.post}.md`;
+  console.log('params', params);
   return {
     props: {
-      post: { ...getPostBySlug(slug, locale) },
+      post: { ...getPostBySlug(params.post[0], locale) },
     },
   };
 };

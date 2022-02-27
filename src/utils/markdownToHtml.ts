@@ -12,7 +12,11 @@ hljs.registerLanguage('plaintext', plaintext);
 hljs.registerLanguage('shell', shell);
 hljs.registerLanguage('xml', xml);
 
-function markdownToHtml(markdown: string) {
+function markdownToHtml(markdown: string): void | string {
+  if(!markdown) {
+    return;
+  }
+
   const highlight = (code, lang) => {
     const language = hljs.getLanguage(lang) ? lang : 'plaintext';
     return hljs.highlight(code, { language }).value;
