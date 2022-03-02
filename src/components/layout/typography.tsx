@@ -26,9 +26,12 @@ const PostTitle: FunctionComponent<{
   </h2>
 );
 
-const PageTitle: FunctionComponent = ({ children }): JSX.Element => (
+const PageTitle = ({ children, center }: {
+  children: string;
+  center?: boolean;
+}) => (
   <h1
-    className={`text-gray-700 text-6xl font-sans font-bold text-center py-4 tracking-wider my-10`}
+    className={`text-gray-700 text-6xl font-sans font-bold ${center ? 'text-center' : 'text-left'} tracking-wider`}
   >
     {children}
   </h1>

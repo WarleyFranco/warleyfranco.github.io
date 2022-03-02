@@ -17,6 +17,25 @@ module.exports = {
         white: colors.white,
         yellow: colors.amber,
       },
+      typography: {
+        xl: {
+          css: {
+            h1: {
+              color: colors.coolGray['700'],
+              fontWeight: 700,
+            },
+            h2: {
+              color: colors.coolGray['700'],
+            },
+            h3: {
+              color: colors.coolGray['700'],
+            },
+            h4: {
+              color: colors.coolGray['700'],
+            },
+          },
+        },
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],

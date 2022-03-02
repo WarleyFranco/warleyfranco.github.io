@@ -16,13 +16,15 @@ const AllPosts = ({ posts, categories }): JSX.Element => {
   const { category } = useContext(CategoryContext);
 
   return (
-    <>
-      <PageTitle>
-        <span className="text-pink-600">#{category}</span> posts
-      </PageTitle>
+    <main>
+      <header className={`py-10`}>
+        <PageTitle center>
+          <span className="text-pink-600">#{category}</span> posts
+        </PageTitle>
+      </header>
       <CategoryTagList categories={categories} />
       <PostList posts={posts} />
-    </>
+    </main>
   );
 };
 
