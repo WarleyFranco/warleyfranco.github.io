@@ -1,8 +1,8 @@
 ---
 title: Sample Post - English
-created: 2022-02-26, 9:14:05 p.m.'
+created: Sun Feb 27 2022 01:34:14 GMT-0500
 description: Sample post description
-categories: dev, random
+categories: random
 language: pt-BR
 ---
 
