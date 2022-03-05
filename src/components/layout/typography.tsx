@@ -1,10 +1,9 @@
 import Link from 'next/link';
 import { FunctionComponent } from 'react';
-import styles from './typography.module.scss';
 
 const Anchor: FunctionComponent = ({ children, ...props }): JSX.Element => {
   return (
-    <a {...props} className={styles.anchor}>
+    <a {...props} className="font-sans text-xl text-gray-700 cursor-pointer hover:text-pink-600 active:text-pink-600">
       {children}
     </a>
   );
