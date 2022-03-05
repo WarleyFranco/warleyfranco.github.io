@@ -1,7 +1,6 @@
 import React from 'react';
 import Nav from '~/types/nav';
 import Link from 'next/link';
-import styles from './header.module.scss';
 import { useTranslation } from '~/hooks';
 import { Locales } from '~/locales';
 import { useRouter } from 'next/router';
@@ -12,24 +11,20 @@ const navItems: Nav[] = [
     name: 'about',
     path: '/about',
   },
-  {
-    name: 'posts',
-    path: '/posts',
-  },
 ];
 
 function Header() {
   const { t, locale } = useTranslation();
   return (
     <>
-      <header className={styles.header}>
+      <header className="flex items-center bg-white shadow h-20 px-4 justify-between">
         <Link href="/">
           <Anchor>
             <h1 className="font-sans text-4xl font-bold text-gray-700">Warley Franco<span className="text-pink-600 text-4xl">;</span></h1>
           </Anchor>
         </Link>
         <nav>
-          <ul className={styles.list}>
+          <ul className="flex list-none">
             {navItems.map((item) => (
               <li key={item.name}>
                 <Link href={item.path} locale={locale}>
