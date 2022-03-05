@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import styles from './post-list.module.scss';
 import { CategoryContext } from '~/context';
 
 type CategoryTagListProps = {
@@ -8,16 +7,17 @@ type CategoryTagListProps = {
 
 const CategoryTagList = ({ categories }: CategoryTagListProps) => {
   const { selectCategory } = useContext(CategoryContext);
+  const { category } = useContext(CategoryContext);
   return (
     <>
-      <div className="flex flex-grow justify-center text-center border-t shadow">
-        {categories.map((category) => (
+      <div className="flex flex-grow justify-center text-center border-t border-b bg-white">
+        {categories.map((tag) => (
           <span
-            onClick={() => selectCategory(category)}
-            key={`${category}`}
-            className={`${styles[category]} ${styles.categoryTag}`}
+            onClick={() => selectCategory(tag)}
+            key={`${tag}`}
+            className={`${tag === category ? 'text-pink-600' : 'text-gray-700'} cursor-pointer mx-2 my-1`}
           >
-            #{category}
+            #{tag}
           </span>
         ))}
       </div>

@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { PostTitle } from '~/components/layout/typography';
-import styles from './post-list.module.scss';
 import formatDate from '~/utils/formatDate';
 import { Post } from '~/types/post';
 import { CategoryContext } from '~/context';
@@ -18,7 +17,7 @@ const CategoryTags = ({ categories }: CategoryTagProps) => {
         <span
           onClick={() => selectCategory(category)}
           key={`${category}`}
-          className={`${styles[category]} ${styles.categoryTag}`}
+          className={`cursor-pointer mr-2`}
         >
           #{category}
         </span>
@@ -36,16 +35,16 @@ const PostListItem = ({ post }: PostListItemProps) => {
   const created = formatDate(post.created, locale);
 
   return (
-    <article className={styles.article}>
+    <article className="bg-white rounded-md p-4 flex flex-col flex-none w-full shadow my-4">
       <>
         <header>
           <PostTitle postLink={`/posts/${post.slug}`} locale={locale}>
             {post.title}
           </PostTitle>
-          <p className={styles.date}>{created}</p>
+          <p className="text-gray-700 font-light text-base">{created}</p>
         </header>
-        <p className={styles.description}>{post.description}</p>
-        <div className={styles.categories}>
+        <p className="py-1">{post.description}</p>
+        <div className="inline-flex">
           <CategoryTags categories={post.categories} />
         </div>
       </>
