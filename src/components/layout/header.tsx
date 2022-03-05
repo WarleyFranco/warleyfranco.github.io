@@ -20,13 +20,16 @@ function Header() {
       <header className="flex items-center bg-white shadow h-20 px-4 justify-between">
         <Link href="/">
           <Anchor>
-            <h1 className="font-sans text-4xl font-bold text-gray-700">Warley Franco<span className="text-pink-600 text-4xl">;</span></h1>
+            <h1 className="font-sans text-4xl font-bold text-gray-700">
+              W<span className="hidden sm:inline sm:mr-2">arley</span>F<span className="hidden sm:inline">ranco</span>
+              <span className="text-pink-600 text-4xl">;</span>
+            </h1>
           </Anchor>
         </Link>
         <nav>
           <ul className="flex list-none">
             {navItems.map((item) => (
-              <li key={item.name}>
+              <li key={item.name} className="mx-1 md:mx-4">
                 <Link href={item.path} locale={locale}>
                   <Anchor>{t(item.name)}</Anchor>
                 </Link>
@@ -45,7 +48,7 @@ const LocaleLinks = () => {
   return (
     <>
       {Object.keys(Locales).map((locale) => (
-        <li key={locale}>
+        <li key={locale} className="mx-1 md:mx-4">
           <Link href={{ pathname, query }} locale={Locales[locale]}>
             <Anchor>{Locales[locale]}</Anchor>
           </Link>
