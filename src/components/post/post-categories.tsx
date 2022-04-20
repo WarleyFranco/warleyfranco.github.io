@@ -1,25 +1,15 @@
-import React, { useContext } from 'react';
-import { CategoryContext } from '~/context';
+import React from 'react';
+import CategoryTags from '~/components/post/category-tags';
 
 type CategoryTagListProps = {
   categories: string[];
 };
 
-const CategoryTagList = ({ categories }: CategoryTagListProps) => {
-  const { selectCategory } = useContext(CategoryContext);
-  const { category } = useContext(CategoryContext);
+const CategoryTagList = (props: CategoryTagListProps) => {
   return (
     <>
-      <div className="flex flex-grow justify-center text-center border-t border-b bg-white">
-        {categories.map((tag) => (
-          <span
-            onClick={() => selectCategory(tag)}
-            key={`${tag}`}
-            className={`${tag === category ? 'text-pink-600' : 'text-gray-700'} cursor-pointer mx-2 my-1`}
-          >
-            #{tag}
-          </span>
-        ))}
+      <div className="flex justify-center text-center border-t border-b bg-white">
+        <CategoryTags {...props} isCategoryNav={true}/>
       </div>
     </>
   );

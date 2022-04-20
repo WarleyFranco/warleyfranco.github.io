@@ -3,7 +3,7 @@ import { FunctionComponent } from 'react';
 
 const Anchor: FunctionComponent = ({ children, ...props }): JSX.Element => {
   return (
-    <a {...props} className="font-sans text-xl text-gray-700 cursor-pointer hover:text-pink-600 active:text-pink-600">
+    <a {...props} className="font-sans text-xl text-gray-700 cursor-pointer hover:text-accent active:text-accent">
       {children}
     </a>
   );
@@ -26,7 +26,7 @@ const PostTitle: FunctionComponent<{
 );
 
 const PageTitle = ({ children, center }: {
-  children: string;
+  children: JSX.Element;
   center?: boolean;
 }) => (
   <h1

@@ -102,7 +102,7 @@ const getAllPostsByLocale = (locale: string): Partial<Post>[] => {
   return posts;
 };
 
-const getAllCategories = (): Set<string> => {
+const getAllCategories = (): Array<string> => {
   const categories = new Set<string>();
   categories.add('all');
 
@@ -120,7 +120,7 @@ const getAllCategories = (): Set<string> => {
     }
   });
 
-  return categories;
+  return Array.from(categories);
 }
 
 export { getSlugs, getAllPostsByLocale, getPostBySlug, slugWithoutExtension, getAllCategories };

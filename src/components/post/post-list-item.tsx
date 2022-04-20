@@ -1,30 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { PostTitle } from '~/components/layout/typography';
 import formatDate from '~/utils/formatDate';
 import { Post } from '~/types/post';
-import { CategoryContext } from '~/context';
 import { useTranslation } from '~/hooks';
-
-type CategoryTagProps = {
-  categories: string[];
-};
-
-const CategoryTags = ({ categories }: CategoryTagProps) => {
-  const { selectCategory } = useContext(CategoryContext);
-  return (
-    <>
-      {categories.map((category) => (
-        <span
-          onClick={() => selectCategory(category)}
-          key={`${category}`}
-          className={`cursor-pointer mr-2`}
-        >
-          #{category}
-        </span>
-      ))}
-    </>
-  );
-};
+import CategoryTags from '~/components/post/category-tags';
 
 type PostListItemProps = {
   post: Post;
@@ -35,7 +14,7 @@ const PostListItem = ({ post }: PostListItemProps) => {
   const created = formatDate(post.created, locale);
 
   return (
-    <article className="bg-white rounded-md p-4 flex flex-col flex-none w-full shadow my-4">
+    <article className="bg-white p-4 flex flex-col flex-grow-0 flex-shrink-0 w-full border-b-2 my-4 last:border-b-0">
       <>
         <header>
           <PostTitle postLink={`/posts/${post.slug}`} locale={locale}>

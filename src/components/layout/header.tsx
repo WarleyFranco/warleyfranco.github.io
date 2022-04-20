@@ -22,7 +22,7 @@ function Header() {
           <Anchor>
             <h1 className="font-sans text-4xl font-bold text-gray-700">
               W<span className="hidden sm:inline sm:mr-2">arley</span>F<span className="hidden sm:inline">ranco</span>
-              <span className="text-pink-600 text-4xl">;</span>
+              <span className="text-accent text-4xl">;</span>
             </h1>
           </Anchor>
         </Link>
