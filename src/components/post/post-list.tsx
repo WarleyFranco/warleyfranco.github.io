@@ -8,7 +8,7 @@ const PostList = ({ posts }) => {
     category !== 'all' ? post.categories.includes(category) : true;
 
   return (
-    <section className="flex flex-grow flex-col flex-wrap justify-start p-4 w-full lg:w-3/5 mx-auto bg-white">
+    <section className="flex flex-grow flex-col flex-wrap justify-start p-4 w-full lg:w-3/5 mx-auto">
       {posts.filter(filterPostsByCategory).map((post) => (
         <PostListItem post={post} key={post.title} />
       ))}

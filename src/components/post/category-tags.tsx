@@ -17,7 +17,7 @@ const CategoryTags = ({ categories, isCategoryNav = false }: CategoryTagProps) =
           <span
             onClick={() => selectCategory(category)}
             key={`${category}`}
-            className={`${isCurrentCategory ? 'text-accent' : 'text-gray-700'} cursor-pointer mx-2 my-1 first:ml-0`}
+            className={`${isCurrentCategory ? 'text-accent dark:text-dark-accent' : 'text-gray-700 dark:text-gray-300'} cursor-pointer mx-2 my-1 first:ml-0`}
           >
           #{category}
         </span>

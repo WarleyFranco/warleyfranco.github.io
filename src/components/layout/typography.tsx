@@ -3,7 +3,7 @@ import { FunctionComponent } from 'react';
 
 const Anchor: FunctionComponent = ({ children, ...props }): JSX.Element => {
   return (
-    <a {...props} className="font-sans text-xl text-gray-700 cursor-pointer hover:text-accent active:text-accent">
+    <a {...props} className="font-sans text-xl text-gray-700 dark:text-gray-300 cursor-pointer hover:text-accent dark:hover:text-dark-accent active:text-accent">
       {children}
     </a>
   );
@@ -14,7 +14,7 @@ const PostTitle: FunctionComponent<{
   postLink?: string;
   locale?: string;
 }> = ({ children, postLink = '', locale = '' }): JSX.Element => (
-  <h2 className={`text-gray-700 font-semibold text-3xl`}>
+  <h2 className={`text-gray-700 dark:text-gray-300 font-semibold text-3xl`}>
     {postLink && locale ? (
       <Link href={postLink} locale={locale}>
         <a>{children}</a>
@@ -30,7 +30,7 @@ const PageTitle = ({ children, center }: {
   center?: boolean;
 }) => (
   <h1
-    className={`text-gray-700 text-6xl font-sans font-bold ${center ? 'text-center' : 'text-left'} tracking-wider`}
+    className={`text-gray-700 dark:text-gray-300 text-6xl font-sans font-bold ${center ? 'text-center' : 'text-left'} tracking-wider`}
   >
     {children}
   </h1>

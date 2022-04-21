@@ -8,7 +8,7 @@ type CategoryTagListProps = {
 const CategoryTagList = (props: CategoryTagListProps) => {
   return (
     <>
-      <div className="flex justify-center text-center border-t border-b bg-white">
+      <div className="flex justify-center text-center border-t border-b">
         <CategoryTags {...props} isCategoryNav={true}/>
       </div>
     </>

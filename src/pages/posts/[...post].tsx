@@ -49,14 +49,14 @@ const Post = ({ post }): JSX.Element => {
     <div className="flex justify-center">
       <article className="flex flex-col justify-self-center max-w-4xl">
         <header className="py-12">
-          <p className="mb-2">{created}</p>
+          <p className="mb-2 text-gray-700 dark:text-gray-300">{created}</p>
           <PageTitle>
             {post.title}
           </PageTitle>
-          <h2 className="text-3xl my-4 font-light">{post.description}</h2>
+          <h2 className="text-3xl my-4 font-light text-gray-700 dark:text-gray-300">{post.description}</h2>
         </header>
         <div
-          className="max-w-full prose prose-xl prose-pink dark:prose-invert pb-10"
+          className="max-w-full prose prose-xl prose-indigo dark:prose-dark pb-10"
           dangerouslySetInnerHTML={{ __html: markdownToHtml(post.content) as string }}
         />
       </article>
