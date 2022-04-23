@@ -8,11 +8,7 @@ function MainApplication({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Warley Franco Personal Blog</title>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
-          rel="stylesheet"
-        />
+        <title>Warley Franco - Blog</title>
       </Head>
       <ContextProvider>
         <Layout>
