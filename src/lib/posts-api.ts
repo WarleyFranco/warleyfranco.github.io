@@ -102,6 +102,11 @@ const getAllPostsByLocale = (locale: string): Partial<Post>[] => {
   return posts;
 };
 
+const getRandomPosts = (locale: string, qty: number = 2): Partial<Post>[] => {
+  return getAllPostsByLocale(locale).slice(0, qty);
+}
+
+
 const getAllCategories = (): Array<string> => {
   const categories = new Set<string>();
   categories.add('all');
@@ -123,4 +128,4 @@ const getAllCategories = (): Array<string> => {
   return Array.from(categories);
 }
 
-export { getSlugs, getAllPostsByLocale, getPostBySlug, slugWithoutExtension, getAllCategories };
+export { getSlugs, getAllPostsByLocale, getPostBySlug, slugWithoutExtension, getAllCategories, getRandomPosts };

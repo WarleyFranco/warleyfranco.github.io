@@ -26,7 +26,7 @@ const PostTitle: FunctionComponent<{
 );
 
 const PageTitle = ({ children, center }: {
-  children: JSX.Element;
+  children: JSX.Element | string;
   center?: boolean;
 }) => (
   <h1
