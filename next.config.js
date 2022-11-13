@@ -4,4 +4,13 @@ module.exports = {
     defaultLocale: 'en-CA',
   },
   swcMinify: true,
+  async redirects() {
+    return [
+      {
+        source: '/posts',
+        destination: '/',
+        permanent: true,
+      },
+    ];
+  },
 };
