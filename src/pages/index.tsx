@@ -8,7 +8,7 @@ import CategoryTagList from '~/components/post/post-categories';
 
 export async function getStaticProps({ locale }) {
   return {
-    props: { posts: [...getAllPostsByLocale(locale)], categories: [...getAllCategories()], locale },
+    props: { posts: [...getAllPostsByLocale(locale)], categories: [...getAllCategories(locale)], locale },
   };
 }
 
@@ -19,7 +19,7 @@ const AllPosts = ({ posts, categories }): JSX.Element => {
     <main className="flex flex-col flex-grow">
       <header className="py-6">
         <PageTitle center>
-          <p><span className="text-accent">#{category}</span> posts</p>
+          <><span className="text-accent">#{category}</span> posts</>
         </PageTitle>
       </header>
       <div className="flex flex-col flex-grow">

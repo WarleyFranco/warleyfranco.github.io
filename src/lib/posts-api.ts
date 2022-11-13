@@ -107,7 +107,7 @@ const getRandomPosts = (locale: string, qty: number = 2): Partial<Post>[] => {
 }
 
 
-const getAllCategories = (): Array<string> => {
+const getAllCategories = (locale = null): Array<string> => {
   const categories = new Set<string>();
   categories.add('all');
 
@@ -115,7 +115,7 @@ const getAllCategories = (): Array<string> => {
 
   const allSlugs = getSlugs();
   allSlugs.forEach((slug) => {
-    const result = getPostBySlug(slug, null, fields);
+    const result = getPostBySlug(slug, locale, fields);
 
     if (result) {
       result.categories.forEach(category => {
