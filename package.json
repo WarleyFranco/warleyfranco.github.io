@@ -8,7 +8,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "generate:rss": "node scripts/generate-rss.mjs",
+    "prebuild": "npm run generate:rss"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.4.1",
@@ -17,6 +19,7 @@
     "js-yaml": "^4.1.0",
     "marked": "^2.0.3",
     "next": "^12.1.0",
+    "next-connect": "^0.13.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "sanitize-html": "^2.3.3"

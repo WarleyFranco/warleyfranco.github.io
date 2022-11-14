@@ -22,6 +22,9 @@ function markdownToHtml(markdown: string): void | string {
     return hljs.highlight(code, { language }).value;
   };
 
+  marked.use({
+    xhtml: true
+  });
   return marked(markdown, { highlight });
 }
 
