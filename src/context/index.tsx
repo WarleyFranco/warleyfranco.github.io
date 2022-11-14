@@ -3,7 +3,6 @@ import { LocaleContext, LocaleProvider } from './locale.context';
 import CategoryContext from './category.context';
 
 const ContextProvider = ({ children }) => {
-  // TODO add categories context
   const [category, setCategory] = useState('all');
 
   const selectCategory = (categoryArray) => {

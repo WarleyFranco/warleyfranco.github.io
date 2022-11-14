@@ -6,7 +6,6 @@ import { PageTitle } from '~/components/layout/typography';
 import formatDate from '../../utils/formatDate';
 import { useTranslation } from '~/hooks';
 
-// TODO: Create single default post layout
 type PostPageStaticProps = {
   params: {
     post: string;
